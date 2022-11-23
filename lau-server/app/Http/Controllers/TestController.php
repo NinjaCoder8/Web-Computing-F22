@@ -41,4 +41,57 @@ class TestController extends Controller{
 
     }
 
+    function signUp(Request $request){
+
+        $user = new User;
+        $user->fname = $request->fname;
+        $user->lname = $request->lname;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+
+        if($user->save()){
+            return response()->json([
+                "result" => true 
+            ]);
+        }
+    }
+
+    function login(Request $request){
+
+        $user = User::where("email", $request->email)
+                        ->where("password", bcryprt($request->password))
+                        ->get();
+
+        if($user){
+            return response()->json([
+                "id" => $user->id 
+            ]);
+        }else{
+            return response()->json([
+                "id" => -1 
+            ]);
+        }
+    }
+
+    function block($id){
+
+        $user = User::find($id);
+        $user->is_blocked = 1;
+        $user->save();
+
+        return response()->json([
+            "result" => true 
+        ]);
+    }
+
+    function getAllStudents(){
+
+        $users = User::where("is_blocked", 0)
+                            ->sortBy("created_at", "ASC")
+                            ->get();
+
+        return response()->json([
+            "result" => $users 
+        ]);
+    }
 }

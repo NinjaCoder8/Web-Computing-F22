@@ -21,3 +21,23 @@ p{
     margin: 5px;
     background: #fff;
 }
+
+.center{
+    justify-content: center;
+}
+
+.end{
+    justify-content: end; 
+}
+
+.flex-space-around{
+    justify-content: space-around;
+}
+
+.flex-space-evenly{
+    justify-content: space-evenly;
+}
+
+.flex-space-between{
+    justify-content: space-between;
+}

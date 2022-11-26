@@ -59,10 +59,19 @@ class RestaurantController extends Controller{
             $restaurant->name = $restaurant->name
         }*/
 
-        return response()->json([
-            "status" => "success",
-            "results" => []
-        ], 200);
+        if($restaurant->save()){
+            return response()->json([
+                "status" => "success",
+                "results" => $restaurant
+            ], 200);
+        }else{
+            return response()->json([
+                "status" => "failure",
+                "results" => []
+            ], 400);
+        }
+
+
 
     }
 

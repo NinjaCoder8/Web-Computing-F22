@@ -13,7 +13,6 @@ Route::group(["prefix" => "v0.1"], function(){
             Route::post("add/{id?}", [RestaurantController::class, "addOrUpdateRestaurant"]);
             Route::get("search/{keyword}", [RestaurantController::class, "searchRestaurant"]);    
             Route::get("{id?}", [RestaurantController::class, "getRestaurants"]);
-
         });
 
         Route::group(["prefix" => "products"], function(){

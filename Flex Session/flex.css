@@ -73,3 +73,11 @@ p{
 .flex-wrap-reverse{
     flex-wrap: wrap-reverse;
 }
+
+.dir-column{
+    flex-direction: column;
+}
+
+.align-item-center{
+    align-items:center;
+}

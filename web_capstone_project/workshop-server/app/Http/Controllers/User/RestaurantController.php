@@ -8,6 +8,9 @@ use App\Models\Restaurant;
 use Validator;
 
 class RestaurantController extends Controller{
+    function test(){
+        dd("hi");
+    }
     
     function getRestaurants($id = null){
         if(!$id){
